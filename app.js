@@ -94,12 +94,12 @@ server = http.createServer( function(req, res)
         });
         req.on('end', async function () 
 		{
-            //console.log("POST payload: " + body);	//uncomment this line if you want to see the JSON message
+            //console.log("POST payload: " + body);
         	res.end( '' );
 			
 			if (res.statusCode === 200)
 			{
-				try 	//we better pack the entire thing in a try statement or the server might crash...
+				try 	
 				{
 					var data = JSON.parse(body);	//deserialize the JSON contents
 					
@@ -126,7 +126,7 @@ server = http.createServer( function(req, res)
 					//this is only valid if the JSON contains information about the bomb
 					if(data.round.bomb!=undefined)
 					{
-						console.log(data.round.bomb);	//better print it for clarity
+						console.log(data.round.bomb);	
 						bombPlanted()
 					}
 					
